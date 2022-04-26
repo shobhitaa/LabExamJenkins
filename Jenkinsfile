@@ -1,14 +1,21 @@
 pipeline {
-    agent any 
+    agent any
+
     stages {
-        stage('Build') { 
+        stage('Checkout') {
             steps {
-                echo 'code built sucessfully'
+               checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '0cf140bd-aeed-4bca-ac16-54ac29901246', url: 'https://github.com/shobhitaa/JenkinsLab.git']]])
             }
         }
-        stage('Test') { 
-            steps {
-                echo 'test passed successfully'
+        stage('Build') {
+            steps{
+                git branch: 'main', credentialsId: '0cf140bd-aeed-4bca-ac16-54ac29901246', url: 'https://github.com/deepxcode/E19CSE243_labExam'
+                bat 'python LabExamDO.ipynb'
+            }
+        }
+        stage('Test'){
+            steps{
+                echo 'Testing successful'
             }
         }
     }
