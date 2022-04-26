@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build') {
             steps{
-                git branch: 'main', credentialsId: '0cf140bd-aeed-4bca-ac16-54ac29901246', url: 'https://github.com/shobhitaa/JenkinsLab.git'
+                git branch: 'main', credentialsId: '0cf140bd-aeed-4bca-ac16-54ac29901246', url: 'https://github.com/shobhitaa/LabExamJenkins.git'
                 bat 'python labs.py'
             }
         }
