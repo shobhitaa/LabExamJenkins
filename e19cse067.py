@@ -1,0 +1,7 @@
+print("Devops")
+print("SPM")
+print("HSS")
+print("HPC")
+print("Undergrad")
+print("Environment")
+print("Capstone Design")
